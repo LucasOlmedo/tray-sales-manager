@@ -41,4 +41,15 @@ class SaleMapper
         $saleModel->applied_commission = $sale->appliedCommission->value();
         return $saleModel;
     }
+
+    public static function fromModelToEntity(SaleModel $saleModel): SaleEntity
+    {
+        return new SaleEntity(
+            id: $saleModel->id,
+            seller: SellerMapper::fromModelToEntity($saleModel->seller),
+            amount: $saleModel->amount,
+            date: $saleModel->date,
+            appliedCommission: new Commission($saleModel->applied_commission),
+        );
+    }
 }
