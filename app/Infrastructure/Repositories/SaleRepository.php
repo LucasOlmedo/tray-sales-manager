@@ -41,7 +41,7 @@ class SaleRepository implements SaleRepositoryInterface
         try {
             $model = SaleMapper::fromEntityToModel($sale);
             $model->save();
-            return $sale;
+            return SaleMapper::fromModelToEntity($model);
         } catch (Exception $e) {
             throw new SaveSaleErrorException(
                 sale: $sale,

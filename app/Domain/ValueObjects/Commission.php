@@ -7,7 +7,7 @@ final class Commission
     private const DEFAULT_VALUE = 8.5;
 
     public function __construct(
-        private ?float $value,
+        private ?float $value = null,
     ) {
     }
 

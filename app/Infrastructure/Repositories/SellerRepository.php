@@ -41,7 +41,7 @@ class SellerRepository implements SellerRepositoryInterface
         try {
             $model = SellerMapper::fromEntityToModel($seller);
             $model->save();
-            return $seller;
+            return SellerMapper::fromModelToEntity($model);
         } catch (Exception $e) {
             throw new SaveSellerErrorException(
                 seller: $seller,
