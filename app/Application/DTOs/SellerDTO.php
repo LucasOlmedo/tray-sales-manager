@@ -8,5 +8,6 @@ class SellerDTO
         public string $name,
         public string $email,
         public ?float $commission,
-    ) {}
+    ) {
+    }
 }

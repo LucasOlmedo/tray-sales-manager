@@ -9,6 +9,9 @@ use App\Models\Seller as SellerModel;
 
 class SellerMapper
 {
+    /**
+     * @param array<mixed> $data
+     */
     public static function fromArrayToDTO(array $data): SellerDTO
     {
         return new SellerDTO(
@@ -24,16 +27,16 @@ class SellerMapper
             id: null,
             name: $sellerDTO->name,
             email: $sellerDTO->email,
-            commission: new Commission($sellerDTO?->commission),
+            commission: new Commission($sellerDTO->commission),
         );
     }
 
     public static function fromEntityToModel(SellerEntity $seller): SellerModel
     {
-        $sellerModel = SellerModel::findOrNew($seller?->id);
+        $sellerModel = SellerModel::findOrNew($seller->id);
         $sellerModel->name = $seller->name;
         $sellerModel->email = $seller->email;
-        $sellerModel->commission_percentage = $seller?->commission->value();
+        $sellerModel->commission_percentage = $seller->commission->value();
         return $sellerModel;
     }
 }

@@ -11,5 +11,6 @@ class Seller
         public string $name,
         public string $email,
         public Commission $commission,
-    ) {}
+    ) {
+    }
 }

@@ -18,8 +18,8 @@ class SellerRepository implements SellerRepositoryInterface
             return $seller;
         } catch (Exception $e) {
             throw new SaveSellerErrorException(
-                detailedError: $e->getMessage(),
-                seller: $seller
+                seller: $seller,
+                detailedError: $e->getMessage()
             );
         }
     }

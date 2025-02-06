@@ -9,7 +9,9 @@ use App\Domain\Repositories\SellerRepositoryInterface;
 
 class CreateSellerUseCase
 {
-    public function __construct(private SellerRepositoryInterface $sellerRepository) {}
+    public function __construct(private SellerRepositoryInterface $sellerRepository)
+    {
+    }
 
     public function execute(SellerDTO $sellerDTO): Seller
     {

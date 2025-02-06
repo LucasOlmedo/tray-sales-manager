@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Log;
 
 class SaveSellerErrorException extends InfrastructureException
 {
-    public function __construct(string $detailedError = '', Seller $seller)
+    public function __construct(Seller $seller, string $detailedError = '')
     {
         $message = "Error saving seller: - {$detailedError}";
 
