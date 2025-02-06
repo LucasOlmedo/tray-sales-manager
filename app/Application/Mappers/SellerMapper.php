@@ -39,4 +39,14 @@ class SellerMapper
         $sellerModel->commission_percentage = $seller->commission->value();
         return $sellerModel;
     }
+
+    public static function fromModelToEntity(SellerModel $sellerModel): SellerEntity
+    {
+        return new SellerEntity(
+            id: $sellerModel->id,
+            name: $sellerModel->name,
+            email: $sellerModel->email,
+            commission: new Commission($sellerModel->commission_percentage),
+        );
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\UseCases;
+namespace App\Application\UseCases\Sellers;
 
 use App\Application\DTOs\SellerDTO;
 use App\Application\Mappers\SellerMapper;
