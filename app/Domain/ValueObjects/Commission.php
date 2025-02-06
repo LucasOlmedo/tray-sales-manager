@@ -2,16 +2,16 @@
 
 namespace App\Domain\ValueObjects;
 
-class Commission
+final class Commission
 {
     private const DEFAULT_VALUE = 8.5;
 
     public function __construct(
-        private ?float $value = self::DEFAULT_VALUE,
+        private ?float $value,
     ) {}
 
     public function value(): float
     {
-        return $this->value;
+        return $this->value ?? self::DEFAULT_VALUE;
     }
 }
