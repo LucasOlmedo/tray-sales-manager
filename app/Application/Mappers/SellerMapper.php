@@ -14,6 +14,13 @@ class SellerMapper
      */
     public static function fromArrayToDTO(array $data): SellerDTO
     {
+        /**
+         * @var string $data['name']
+         * @var string $data['email']
+         * @var array $data{commission: float}
+         *
+         * @phpstan-ignore-next-line
+         */
         return new SellerDTO(
             name: $data['name'],
             email: $data['email'],

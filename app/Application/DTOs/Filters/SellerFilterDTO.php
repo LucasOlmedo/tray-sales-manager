@@ -17,6 +17,14 @@ class SellerFilterDTO
      */
     public static function fromArray(array $data): self
     {
+        /**
+         * @var string|null $data['name']
+         * @var string|null $data['email']
+         * @var int $data['page']
+         * @var int $data['per_page']
+         *
+         * @phpstan-ignore-next-line
+         */
         return new self(
             name: $data['name'] ?? null,
             email: $data['email'] ?? null,

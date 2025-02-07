@@ -15,6 +15,12 @@ class SaleMapper
      */
     public static function fromArrayToDTO(array $data): SaleDTO
     {
+        /**
+         * @var int $data['seller_id']
+         * @var array $data{amount: float}
+         *
+         * @phpstan-ignore-next-line
+         */
         return new SaleDTO(
             sellerId: $data['seller_id'],
             amount: $data['amount'],

@@ -18,6 +18,9 @@ class SaleController extends Controller
 
     public function index(SaleListRequest $request): AnonymousResourceCollection
     {
+        /**
+         * @var array<mixed> $filters
+         */
         $filters = $request->validated();
         $sales = $this->saleService->listSales($filters);
         return SaleResource::collection($sales);
@@ -26,6 +29,9 @@ class SaleController extends Controller
     public function store(StoreSaleRequest $request): SaleResource|JsonResponse
     {
         try {
+            /**
+             * @var array<mixed> $data
+             */
             $data = $request->validated();
             $sale = $this->saleService->createSale($data);
             return new SaleResource($sale);
