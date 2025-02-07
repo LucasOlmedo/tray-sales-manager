@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Application\Services\SaleService;
+use App\Http\Requests\SaleListRequest;
 use App\Http\Requests\StoreSaleRequest;
 use App\Http\Resources\SaleResource;
 use Exception;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class SaleController extends Controller
 {
@@ -14,9 +16,11 @@ class SaleController extends Controller
     {
     }
 
-    public function index(): void
+    public function index(SaleListRequest $request): AnonymousResourceCollection
     {
-        //
+        $filters = $request->validated();
+        $sales = $this->saleService->listSales($filters);
+        return SaleResource::collection($sales);
     }
 
     public function store(StoreSaleRequest $request): SaleResource|JsonResponse

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @method static \App\Models\Sale findOrNew(?int $id)
@@ -12,6 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $amount
  * @property string $date
  * @property float $applied_commission
+ *
+ * @property Seller $seller
  */
 class Sale extends Model
 {
@@ -21,4 +24,12 @@ class Sale extends Model
         'date',
         'applied_commission',
     ];
+
+    /**
+     * @return BelongsTo<Seller, covariant Sale>
+     */
+    public function seller(): BelongsTo
+    {
+        return $this->belongsTo(Seller::class);
+    }
 }
